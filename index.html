@@ -1,65 +1,58 @@
 <html>
 	<head>
-		<title>OHTVG</title>
+		<title>index.km</title>
 		<style>
 			body{
 				background-color: #131322;
 				color: #eeffee;
 				font-family:"Consolas";
 			}
+			
+			#Scr{
+				color: #ffff05;
+			}
+			
+			#Per{
+				color: #0565ff;
+			}
+			
+			button{
+				background-color: #131322;
+				color: #eeffee;
+			}
+			
+			#click{
+				border-style: solid;
+				border-color: white;
+				border-top-color: red;
+				border-bottom-color: blue;
+				border-width: 12px;
+			}
+			
 			table, th, td {
-  border:1px solid white;
-}
+				border:1px solid white;
+			}
 		</style>
 	</head>
 	<body onload="loadcookie();">
 		<center>
-			<h1>✨Oli<i>V</i>ier 🐱‍👤 Holandia 🎂 The 🆚 Video 😃 Game✨ - 💕 beta 2.holandia 😒 </h1>
+			<h1>Beta 0.12</h1>
+			<hr>
 			<img id="click" onclick="km();" src="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif">
-			<p>Per: <div id="Per">1</div></p>
-			<p>Scr: <div id="Scr">0</div></p>
-      			<button id="reset" onclick="resetscr();">😒 Reset 😢</button>
-	
-	<table>
-  		<tr>
-  			<th>UN</th>
-    			<th>SCR</th>
-  		</tr>
-	</table>
-	
-			<script>
-				function km(){
-					var ele = document.getElementById('Scr');
-          var per = document.getElementById('Per');
-          if(parseInt(ele.innerHTML)>500){
-            var x = parseInt(ele.innerHTML)
-            var p=1;
-            while(x>500){
-              x=x-500;
-              p=p+1;
-            }
-            per.innerHTML=p;
-          }
-					
-					ele.innerHTML = parseInt(ele.innerHTML)+parseInt(per.innerHTML);
-          document.cookie=ele.innerHTML;
-				}
-        function loadcookie(){
-          if(document.cookie!=""){
-            var ele = document.getElementById('Scr');
-            var per = document.getElementById('Per');
-            ele.innerHTML=parseInt(document.cookie)-1;
-            km();
-            console.log(per.innerHTML);
-          }
-        }
-        function resetscr() {
-          document.getElementById('Scr').innerHTML="0";
-          document.getElementById('Per').innerHTML="1";
-        }
-			</script>
       <hr>
-      <h6>This site uses cookies 🍪</h6>
+      <button id="upgrade" onclick="upgrade();">💥 Upgrade 😳</button>
+				<hr>
+				Points per click: <div id="Per"> 1 </div>
+				<br>
+      	Upgrade cost: <div id="Upg">100</div>
+				<br>
+				Score: <div id="Scr"> 0 </div>
+				<br>
+      <button id="reset" onclick="resetscr();">😒 Reset 😢</button>
+			<script src="script.js"></script>
+			<hr>
+			<br>
+			<h6 >🍪 This site uses cookies 🍪</h6>
 		</center>
 	</body>
 </html>
