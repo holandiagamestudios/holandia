@@ -45,6 +45,7 @@ function level(){
 	else{
 		lvl.innerHTML = "Average holaVdia fan";
 	}
+	console.log("kmp");
 }
 
 function loadcookie(){
