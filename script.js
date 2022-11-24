@@ -20,6 +20,31 @@ function km(){
 	api.set('score',ele.innerHTML);
   api.set('per',per.innerHTML);
   api.set('upg',upg.innerHTML);
+	level();
+}
+
+function level(){
+	var scr = parseInt(document.getElementById('Scr'));
+	var lvl = document.getElementById('Lvl');
+	
+	if(scr>=100){
+		lvl.inner.HTML = "Mickiewicz przez V";	
+	}
+	else if(scr>=1000){
+		lvl.innerHTML =	"oliWier";
+	}
+	else if(scr>=10000){
+		lvl.innerHTML = "oliVier";	
+	}
+	else if(scr>=100000){
+		lvl.innerHTML = "Bańki";
+	}
+	else if(scr>=1000000){
+		lvl.innerHTML = "Latający holender";	
+	}
+	else{
+		lvl.innerHTML = "Average holaVdia fan";
+	}
 }
 
 function loadcookie(){
@@ -30,6 +55,7 @@ function loadcookie(){
 		ele.innerHTML=api.get('score');
     per.innerHTML=api.get('per');
     upg.innerHTML=api.get('upg');
+	level();
 	}
 }
 
