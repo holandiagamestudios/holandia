@@ -1,1 +1,55 @@
-<h1>hw</h1>
+<html>
+	<head>
+		<title>OHTVG</title>
+		<style>
+			body{
+				background-color: #131322;
+				color: #eeffee;
+				font-family:"Consolas";
+			}
+			#
+		</style>
+	</head>
+	<body onload="loadcookie();">
+		<center>
+			<h1>✨Oli<i>V</i>ier 🐱‍👤 Holandia 🎂 The 🆚 Video 😃 Game✨</h1>
+			<img id="click" onclick="km();" src="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif">
+			<p>Per: <div id="Per">1</div></p>
+			<p>Scr: <div id="Scr">0</div></p>
+      <button id="reset" onclick="resetscr();">Reset</button>
+			<script>
+				function km(){
+					var ele = document.getElementById('Scr');
+          var per = document.getElementById('Per');
+          if(parseInt(ele.innerHTML)>100){
+            var x = parseInt(ele.innerHTML)
+            var p=1;
+            while(x>100){
+              x=x-100;
+              p=p+1;
+            }
+            per.innerHTML=p;
+          }
+					
+					ele.innerHTML = parseInt(ele.innerHTML)+parseInt(per.innerHTML);
+          document.cookie=ele.innerHTML;
+				}
+        function loadcookie(){
+          if(document.cookie!=""){
+            var ele = document.getElementById('Scr');
+            var per = document.getElementById('Per');
+            ele.innerHTML=parseInt(document.cookie)-1;
+            km();
+            console.log(per.innerHTML);
+          }
+        }
+        function resetscr() {
+          document.getElementById('Scr').innerHTML="0";
+          document.getElementById('Per').innerHTML="1";
+        }
+			</script>
+      <hr>
+      <h6>This site uses cookies 🍪</h6>
+		</center>
+	</body>
+</html>
