@@ -4,7 +4,7 @@ function upgrade(){
 	var ele = document.getElementById('Scr');
 	var per = document.getElementById('Per');
   var upg = document.getElementById('Upg');
-  if(parseInt(ele.innerHTML)>parseInt(upg.innerHTML)){
+  if(parseInt(ele.innerHTML)>=parseInt(upg.innerHTML)){
     upg.innerHTML = parseInt(upg.innerHTML)*3;
     per.innerHTML = parseInt(per.innerHTML)+1;
   }
