@@ -27,19 +27,19 @@ function level(){
 	var scr = parseInt(document.getElementById('Scr'));
 	var lvl = document.getElementById('Lvl');
 	
-	if(scr>=100){
+	if(scr<=100){
 		lvl.inner.HTML = "Mickiewicz przez V";	
 	}
-	else if(scr>=1000){
+	else if(scr<=1000){
 		lvl.innerHTML =	"oliWier";
 	}
-	else if(scr>=10000){
+	else if(scr<=10000){
 		lvl.innerHTML = "oliVier";	
 	}
-	else if(scr>=100000){
+	else if(scr<=100000){
 		lvl.innerHTML = "Bańki";
 	}
-	else if(scr>=1000000){
+	else if(scr<=1000000){
 		lvl.innerHTML = "Latający holender";	
 	}
 	else{
