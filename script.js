@@ -1,6 +1,3 @@
-
-
-
 function upgrade(){
 	var ele = document.getElementById('Scr');
 	var per = document.getElementById('Per');
