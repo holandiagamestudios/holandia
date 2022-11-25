@@ -56,9 +56,9 @@ function loadcookie(){
 		ele.innerHTML=api.get('score');
     		per.innerHTML=api.get('per');
     		upg.innerHTML=api.get('upg');
-		document.addEventListener('keydown', function(event) {
+		document.onkeydown = function(event) {
 			km();
-		});
+		};
 		level();
 	}
 }
