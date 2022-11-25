@@ -50,13 +50,16 @@ function level(){
 
 function loadcookie(){
 	if(document.cookie!==""){
-	  var ele = document.getElementById('Scr');
-	  var per = document.getElementById('Per');
-    var upg = document.getElementById('Upg');
+	  	var ele = document.getElementById('Scr');
+	  	var per = document.getElementById('Per');
+    		var upg = document.getElementById('Upg');
 		ele.innerHTML=api.get('score');
-    per.innerHTML=api.get('per');
-    upg.innerHTML=api.get('upg');
-	level();
+    		per.innerHTML=api.get('per');
+    		upg.innerHTML=api.get('upg');
+		document.addEventListener('keydown', function(event) {
+			km();
+		});
+		level();
 	}
 }
 
