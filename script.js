@@ -56,9 +56,6 @@ function loadcookie(){
 		ele.innerHTML=api.get('score');
     		per.innerHTML=api.get('per');
     		upg.innerHTML=api.get('upg');
-		document.onkeydown = function(event) {
-			km();
-		};
 		level();
 	}
 }
@@ -70,6 +67,7 @@ function resetscr() {
 	ele.innerHTML="0";
 	per.innerHTML="1";
   upg.innerHTML="100";
+	document.cookie="";
 	api.set('score',ele.innerHTML);
   api.set('per',per.innerHTML);
   api.set('upg',upg.innerHTML);
