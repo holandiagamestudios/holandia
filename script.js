@@ -24,7 +24,7 @@ function km(){
 }
 
 function level(){
-	var scr = parseInt(document.getElementById('Scr'));
+	var scr = parseInt(document.getElementById('Scr').innerHTML);
 	var lvl = document.getElementById('Lvl');
 	
 	if(scr<=100){
