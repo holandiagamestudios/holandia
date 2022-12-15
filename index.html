@@ -1,303 +1,300 @@
-
 <html>
-	<head>
-		<title>😎OHTVG🥶</title>
-		<style>
-			body{
-				background-color: #131322;
-				color: #eeffee;
-				font-family:"Consolas";
-			}
-			
-			#Scr{
-				color: #ffff05;
-			}
-			
-			#Per{
-				color: #0565ff;
-			}
-			
-			button{
-				background-color: #131322;
-				color: #eeffee;
-			}
-			
-			#click{
-				background-color: white;
-				border-style: solid;
-				border-color: white;
-				border-top-color: red;
-				border-bottom-color: blue;
-				border-width: 12px;
-			}
-			
-			#Lvl{
-				color: #00ee00;	
-			}
-			
-			#Upg{
-				color: #ef0a0b;	
-			}
-			
-			table, th, td {
-				border:1px solid white;
-			}
-		</style>
-	</head>
-	<body onload="loadcookie();">
-		<center>
-			<h1>OHTVG Beta 1.43</h1>
-			<!--<img src="obraz_2022-12-06_091438109.png">-->
-			<hr>
-			<button id="click" onclick="km();">
-			<img id="field" height="240px" src="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif">
-			</button>
-      <hr>
+   <head>
+      <title>😎OHTVG🥶</title>
+      <style>
+         body{
+         background-color: #131322;
+         color: #eeffee;
+         font-family:"Consolas";
+         }
+         #Scr{
+         color: #ffff05;
+         }
+         #Per{
+         color: #0565ff;
+         }
+         button{
+         background-color: #131322;
+         color: #eeffee;
+         }
+         #click{
+         background-color: white;
+         border-style: solid;
+         border-color: white;
+         border-top-color: red;
+         border-bottom-color: blue;
+         border-width: 12px;
+         }
+         #Lvl{
+         color: #00ee00;	
+         }
+         #Upg{
+         color: #ef0a0b;	
+         }
+         table, th, td {
+         border:1px solid white;
+         }
+      </style>
+   </head>
+   <body onload="loadcookie();">
+      <center>
+         <h1>OHTVG Beta 1.43</h1>
+         <!--<img src="obraz_2022-12-06_091438109.png">-->
+         <hr>
+         <button id="click" onclick="km();">
+         <img id="field" height="240px" src="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif">
+         </button>
+         <hr>
          <button id="upgrade" onclick="upgrade();">Upgrade</button>
-				<hr>
-				Points per click: <div id="Per"> 1 </div>
-				<br>
-      	Upgrade cost: <div id="Upg">100</div>
-				<br>
-				Score: <div id="Scr"> 0 </div>
-				<br>
-				Level: <div id="Lvl"> - </div>
-				<br>
-      <button id="reset" onclick="resetscr();">😒 Reset 😢</button>
-			<script>
-			
-			
-			
-			function upgrade(){
-	var ele = document.getElementById('Scr');
-	var per = document.getElementById('Per');
-  var upg = document.getElementById('Upg');
-  if(parseInt(ele.innerHTML)>=parseInt(upg.innerHTML)){
-	ele.innerHTML = parseInt(ele.innerHTML) - parseInt(upg.innerHTML);
-    upg.innerHTML = parseInt(upg.innerHTML)*2;
-    per.innerHTML = parseInt(per.innerHTML)+1;
-		api.set('score',ele.innerHTML);
-  api.set('per',per.innerHTML);
-  api.set('upg',upg.innerHTML);
-  level();
-  }
-}
-
-function km(){
-	var ele = document.getElementById('Scr');
-	var per = document.getElementById('Per');
-  var upg = document.getElementById('Upg');
-	
-	ele.innerHTML = parseInt(ele.innerHTML)+parseInt(per.innerHTML);
-	level();
-  document.cookie="";
-	api.set('score',ele.innerHTML);
-  api.set('per',per.innerHTML);
-  api.set('upg',upg.innerHTML);
-	
-}
-
-function level(){
-	var scr = parseInt(document.getElementById('Scr').innerHTML);
-	var lvl = document.getElementById('Lvl');
-	var fld = document.getElementById('field');
-	if(scr<=100){
-		lvl.innerHTML = "Mickie<b><i>V</i></b>icz";
-		fld.src="https://static3.winylownia.pl/pol_pl_Adam-Mickiewicz-PLAKAT-50825_1.jpg";
-	}
-	else if(scr<=1000){
-		lvl.innerHTML =	"oliWier";
-		fld.src="https://yt3.googleusercontent.com/az4XFoj5EQo8JdjdWWtyiTJK4hlxLgh_tivMo_TeYJ9Nz8AT63emWhKNunT9C-0bvwg15g0Uylg=s176-c-k-c0x00ffffff-no-rj";
-	}
-	else if(scr<=10000){
-		lvl.innerHTML = "oliVier";
-		fld.src="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif";
-	}
-	else if(scr<=100000){
-		lvl.innerHTML = "Bańki";
-		fld.src="https://upload.wikimedia.org/wikipedia/commons/6/60/Pyrkon_2022_-_White_furry.jpg";
-	}
-	else if(scr<=1000000){
-		lvl.innerHTML = "Latający holender";	
-		fld.src="https://static.wikia.nocookie.net/piracizkaraibow/images/e/e9/Lataj%C4%85cy_Holender.jpg/revision/latest?cb=20150115195609&path-prefix=pl";
-	}
-	else{
-		lvl.innerHTML = "Average holaVdia fan";
-		fld.src="https://thumbs.dreamstime.com/b/holender%C3%B3w-dzieciaki-dzieci-z-flaga-holandie-holandia-fan-91542310.jpg";
-	}
-}
-
-function loadcookie(){
-	if(document.cookie!==""){
-	  	var ele = document.getElementById('Scr');
-	  	var per = document.getElementById('Per');
-    		var upg = document.getElementById('Upg');
-			var score = parseInt(api.get('score'));
-		ele.innerHTML=score;
-    		per.innerHTML=api.get('per');
-    		upg.innerHTML=api.get('upg');
-		level();
-	}
-}
-
-function resetscr() {
-  var ele = document.getElementById('Scr');
-	var per = document.getElementById('Per');
-  var upg = document.getElementById('Upg');
-	ele.innerHTML="0";
-	per.innerHTML="1";
-  upg.innerHTML="100";
-	document.cookie="";
-	api.set('score',ele.innerHTML);
-  api.set('per',per.innerHTML);
-  api.set('upg',upg.innerHTML);
-
-}
-
-
-///////////////
-// js-cookie //
-///////////////
-
-function assign (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-    for (var key in source) {
-      target[key] = source[key];
-    }
-  }
-  return target
-}
-/* eslint-enable no-var */
-
-/* eslint-disable no-var */
-var defaultConverter = {
-  read: function (value) {
-    if (value[0] === '"') {
-      value = value.slice(1, -1);
-    }
-    return value.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent)
-  },
-  write: function (value) {
-    return encodeURIComponent(value).replace(
-      /%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g,
-      decodeURIComponent
-    )
-  }
-};
-/* eslint-enable no-var */
-
-/* eslint-disable no-var */
-
-function init (converter, defaultAttributes) {
-  function CookieSet (key, value, attributes) {
-    if (typeof document === 'undefined') {
-      return
-    }
-
-    attributes = assign({}, defaultAttributes, attributes);
-
-    if (typeof attributes.expires === 'number') {
-      attributes.expires = new Date(Date.now() + attributes.expires * 864e5);
-    }
-    if (attributes.expires) {
-      attributes.expires = attributes.expires.toUTCString();
-    }
-
-    key = encodeURIComponent(key)
-      .replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent)
-      .replace(/[()]/g, escape);
-
-    var stringifiedAttributes = '';
-    for (var attributeName in attributes) {
-      if (!attributes[attributeName]) {
-        continue
-      }
-
-      stringifiedAttributes += '; ' + attributeName;
-
-      if (attributes[attributeName] === true) {
-        continue
-      }
-
-      // Considers RFC 6265 section 5.2:
-      // ...
-      // 3.  If the remaining unparsed-attributes contains a %x3B (";")
-      //     character:
-      // Consume the characters of the unparsed-attributes up to,
-      // not including, the first %x3B (";") character.
-      // ...
-      stringifiedAttributes += '=' + attributes[attributeName].split(';')[0];
-    }
-
-    return (document.cookie =
-      key + '=' + converter.write(value, key) + stringifiedAttributes)
-  }
-
-  function CookieGet (key) {
-    if (typeof document === 'undefined' || (arguments.length && !key)) {
-      return
-    }
-
-    // To prevent the for loop in the first place assign an empty array
-    // in case there are no cookies at all.
-    var cookies = document.cookie ? document.cookie.split('; ') : [];
-    var jar = {};
-    for (var i = 0; i < cookies.length; i++) {
-      var parts = cookies[i].split('=');
-      var value = parts.slice(1).join('=');
-
-      try {
-        var foundKey = decodeURIComponent(parts[0]);
-        jar[foundKey] = converter.read(value, foundKey);
-
-        if (key === foundKey) {
-          break
-        }
-      } catch (e) {}
-    }
-
-    return key ? jar[key] : jar
-  }
-
-  return Object.create(
-    {
-      set: CookieSet,
-      get: CookieGet,
-      remove: function (key, attributes) {
-        set(
-          key,
-          '',
-          assign({}, attributes, {
-            expires: -1
-          })
-        );
-      },
-      withAttributes: function (attributes) {
-        return init(this.converter, assign({}, this.attributes, attributes))
-      },
-      withConverter: function (converter) {
-        return init(assign({}, this.converter, converter), this.attributes)
-      }
-    },
-    {
-      attributes: { value: Object.freeze(defaultAttributes) },
-      converter: { value: Object.freeze(converter) }
-    }
-  )
-}
-
-var api = init(defaultConverter, { path: '/' });
-
-			
-			
-			
-			
-			
-			</script>
-			<br>
-			<hr>
-			<h6 >🍪 This site uses cookies 🍪</h6>
-		</center>
-	</body>
+         <hr>
+         Points per click: 
+         <div id="Per"> 1 </div>
+         <br>
+         Upgrade cost: 
+         <div id="Upg">100</div>
+         <br>
+         Score: 
+         <div id="Scr"> 0 </div>
+         <br>
+         Level: 
+         <div id="Lvl"> - </div>
+         <br>
+         <button id="reset" onclick="resetscr();">😒 Reset 😢</button>
+         <script>
+            function upgrade(){
+            var ele = document.getElementById('Scr');
+            var per = document.getElementById('Per');
+            var upg = document.getElementById('Upg');
+            if(parseInt(ele.innerHTML)>=parseInt(upg.innerHTML)){
+            ele.innerHTML = parseInt(ele.innerHTML) - parseInt(upg.innerHTML);
+             upg.innerHTML = parseInt(upg.innerHTML)*2;
+             per.innerHTML = parseInt(per.innerHTML)+1;
+            api.set('score',ele.innerHTML);
+            api.set('per',per.innerHTML);
+            api.set('upg',upg.innerHTML);
+            level();
+            }
+            }
+            
+            function km(){
+            var ele = document.getElementById('Scr');
+            var per = document.getElementById('Per');
+            var upg = document.getElementById('Upg');
+            
+            ele.innerHTML = parseInt(ele.innerHTML)+parseInt(per.innerHTML);
+            level();
+            document.cookie="";
+            api.set('score',ele.innerHTML);
+            api.set('per',per.innerHTML);
+            api.set('upg',upg.innerHTML);
+            
+            }
+            
+            function level(){
+            var scr = parseInt(document.getElementById('Scr').innerHTML);
+            var lvl = document.getElementById('Lvl');
+            var fld = document.getElementById('field');
+            if(scr<=100){
+            lvl.innerHTML = "Mickie<b><i>V</i></b>icz";
+            fld.src="https://static3.winylownia.pl/pol_pl_Adam-Mickiewicz-PLAKAT-50825_1.jpg";
+            }
+            else if(scr<=1000){
+            lvl.innerHTML =	"oliWier";
+            fld.src="https://yt3.googleusercontent.com/az4XFoj5EQo8JdjdWWtyiTJK4hlxLgh_tivMo_TeYJ9Nz8AT63emWhKNunT9C-0bvwg15g0Uylg=s176-c-k-c0x00ffffff-no-rj";
+            }
+            else if(scr<=10000){
+            lvl.innerHTML = "oliVier";
+            fld.src="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif";
+            }
+	    else if(scr<=50000){
+	    lvl.innerHTML = "Latający holender";	
+            fld.src="https://static.wikia.nocookie.net/piracizkaraibow/images/e/e9/Lataj%C4%85cy_Holender.jpg/revision/latest?cb=20150115195609&path-prefix=pl";
+	    }
+            else if(scr<=100000){
+            lvl.innerHTML = "Bańki";
+            fld.src="https://upload.wikimedia.org/wikipedia/commons/6/60/Pyrkon_2022_-_White_furry.jpg";
+            }
+            else if(scr<=1000000){
+            lvl.innerHTML = "Minecraft ID 1";	
+            fld.src="https://static.wikia.nocookie.net/minecraft_pl_gamepedia/images/f/fe/Kamie%C5%84.png/revision/latest?cb=20190406143649";
+            }
+            else{
+            lvl.innerHTML = "Average holaVdia fan";
+            fld.src="https://thumbs.dreamstime.com/b/holender%C3%B3w-dzieciaki-dzieci-z-flaga-holandie-holandia-fan-91542310.jpg";
+            }
+            }
+            
+            function loadcookie(){
+            if(document.cookie!==""){
+            	var ele = document.getElementById('Scr');
+            	var per = document.getElementById('Per');
+             		var upg = document.getElementById('Upg');
+            var score = parseInt(api.get('score'));
+            ele.innerHTML=score;
+             		per.innerHTML=api.get('per');
+             		upg.innerHTML=api.get('upg');
+            level();
+            }
+            }
+            
+            function resetscr() {
+            var ele = document.getElementById('Scr');
+            var per = document.getElementById('Per');
+            var upg = document.getElementById('Upg');
+            ele.innerHTML="0";
+            per.innerHTML="1";
+            upg.innerHTML="100";
+            document.cookie="";
+            api.set('score',ele.innerHTML);
+            api.set('per',per.innerHTML);
+            api.set('upg',upg.innerHTML);
+            
+            }
+            
+            
+            ///////////////
+            // js-cookie //
+            ///////////////
+            
+            function assign (target) {
+            for (var i = 1; i < arguments.length; i++) {
+             var source = arguments[i];
+             for (var key in source) {
+               target[key] = source[key];
+             }
+            }
+            return target
+            }
+            /* eslint-enable no-var */
+            
+            /* eslint-disable no-var */
+            var defaultConverter = {
+            read: function (value) {
+             if (value[0] === '"') {
+               value = value.slice(1, -1);
+             }
+             return value.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent)
+            },
+            write: function (value) {
+             return encodeURIComponent(value).replace(
+               /%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g,
+               decodeURIComponent
+             )
+            }
+            };
+            /* eslint-enable no-var */
+            
+            /* eslint-disable no-var */
+            
+            function init (converter, defaultAttributes) {
+            function CookieSet (key, value, attributes) {
+             if (typeof document === 'undefined') {
+               return
+             }
+            
+             attributes = assign({}, defaultAttributes, attributes);
+            
+             if (typeof attributes.expires === 'number') {
+               attributes.expires = new Date(Date.now() + attributes.expires * 864e5);
+             }
+             if (attributes.expires) {
+               attributes.expires = attributes.expires.toUTCString();
+             }
+            
+             key = encodeURIComponent(key)
+               .replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent)
+               .replace(/[()]/g, escape);
+            
+             var stringifiedAttributes = '';
+             for (var attributeName in attributes) {
+               if (!attributes[attributeName]) {
+                 continue
+               }
+            
+               stringifiedAttributes += '; ' + attributeName;
+            
+               if (attributes[attributeName] === true) {
+                 continue
+               }
+            
+               // Considers RFC 6265 section 5.2:
+               // ...
+               // 3.  If the remaining unparsed-attributes contains a %x3B (";")
+               //     character:
+               // Consume the characters of the unparsed-attributes up to,
+               // not including, the first %x3B (";") character.
+               // ...
+               stringifiedAttributes += '=' + attributes[attributeName].split(';')[0];
+             }
+            
+             return (document.cookie =
+               key + '=' + converter.write(value, key) + stringifiedAttributes)
+            }
+            
+            function CookieGet (key) {
+             if (typeof document === 'undefined' || (arguments.length && !key)) {
+               return
+             }
+            
+             // To prevent the for loop in the first place assign an empty array
+             // in case there are no cookies at all.
+             var cookies = document.cookie ? document.cookie.split('; ') : [];
+             var jar = {};
+             for (var i = 0; i < cookies.length; i++) {
+               var parts = cookies[i].split('=');
+               var value = parts.slice(1).join('=');
+            
+               try {
+                 var foundKey = decodeURIComponent(parts[0]);
+                 jar[foundKey] = converter.read(value, foundKey);
+            
+                 if (key === foundKey) {
+                   break
+                 }
+               } catch (e) {}
+             }
+            
+             return key ? jar[key] : jar
+            }
+            
+            return Object.create(
+             {
+               set: CookieSet,
+               get: CookieGet,
+               remove: function (key, attributes) {
+                 set(
+                   key,
+                   '',
+                   assign({}, attributes, {
+                     expires: -1
+                   })
+                 );
+               },
+               withAttributes: function (attributes) {
+                 return init(this.converter, assign({}, this.attributes, attributes))
+               },
+               withConverter: function (converter) {
+                 return init(assign({}, this.converter, converter), this.attributes)
+               }
+             },
+             {
+               attributes: { value: Object.freeze(defaultAttributes) },
+               converter: { value: Object.freeze(converter) }
+             }
+            )
+            }
+            
+            var api = init(defaultConverter, { path: '/' });
+            
+            
+            
+            
+            
+            
+         </script>
+         <br>
+         <hr>
+         <h6 >🍪 This site uses cookies 🍪</h6>
+      </center>
+   </body>
 </html>
