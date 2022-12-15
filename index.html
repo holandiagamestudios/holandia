@@ -50,10 +50,10 @@
 			<!--<img src="obraz_2022-12-06_091438109.png">-->
 			<hr>
 			<button id="click" onclick="km();">
-			<img src="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif">
+			<img id="field" height="240px" src="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif">
 			</button>
       <hr>
-      😋😀 <button id="upgrade" onclick="upgrade();">💥 Upgrade 😳</button> 😁🐱‍👤
+         <button id="upgrade" onclick="upgrade();">Upgrade</button>
 				<hr>
 				Points per click: <div id="Per"> 1 </div>
 				<br>
@@ -73,8 +73,13 @@
 	var per = document.getElementById('Per');
   var upg = document.getElementById('Upg');
   if(parseInt(ele.innerHTML)>=parseInt(upg.innerHTML)){
+	ele.innerHTML = parseInt(ele.innerHTML) - parseInt(upg.innerHTML);
     upg.innerHTML = parseInt(upg.innerHTML)*2;
     per.innerHTML = parseInt(per.innerHTML)+1;
+		api.set('score',ele.innerHTML);
+  api.set('per',per.innerHTML);
+  api.set('upg',upg.innerHTML);
+  level();
   }
 }
 
@@ -95,15 +100,17 @@ function km(){
 function level(){
 	var scr = parseInt(document.getElementById('Scr').innerHTML);
 	var lvl = document.getElementById('Lvl');
-	
+	var fld = document.getElementById('field');
 	if(scr<=100){
-		lvl.innerHTML = "Mickiewicz przez V";	
+		lvl.innerHTML = "Mickie<b><i>V</i></b>icz";
+		fld.src="https://static3.winylownia.pl/pol_pl_Adam-Mickiewicz-PLAKAT-50825_1.jpg";
 	}
 	else if(scr<=1000){
 		lvl.innerHTML =	"oliWier";
 	}
 	else if(scr<=10000){
-		lvl.innerHTML = "oliVier";	
+		lvl.innerHTML = "oliVier";
+		fld.src="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif";
 	}
 	else if(scr<=100000){
 		lvl.innerHTML = "Bańki";
@@ -122,7 +129,8 @@ function loadcookie(){
 	  	var ele = document.getElementById('Scr');
 	  	var per = document.getElementById('Per');
     		var upg = document.getElementById('Upg');
-		ele.innerHTML=api.get('score');
+			var score = parseInt(api.get('score'));
+		ele.innerHTML=score;
     		per.innerHTML=api.get('per');
     		upg.innerHTML=api.get('upg');
 		level();
