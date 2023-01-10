@@ -2,6 +2,7 @@
 
 <head>
   <title>😎OHTVG🥶</title>
+  <link rel="icon" type="image/x-icon" href="https://media.tenor.com/u9FuB6izJg0AAAAC/netherlands-flag.gif">
   <style>
     body {
       background-color: #131322;
@@ -58,18 +59,19 @@
     </button>
     <hr>
     <button id="upgrade" onclick="upgrade();">Upgrade</button>
+    <button id="auto" onclick="auto();">Autoclicker</button>
     <hr>
     Points per click:
-    <div id="Per"> 1 </div>
+    <b id="Per"> 1 </b>
     <br>
     Upgrade cost:
-    <div id="Upg">100</div>
+    <b id="Upg">100</b>
     <br>
     Score:
-    <div id="Scr"> 0 </div>
+    <b id="Scr"> 0 </b>
     <br>
     Level:
-    <div id="Lvl"> - </div>
+    <b id="Lvl"> - </b>
     <br>
     <button id="reset" onclick="resetscr();">😒 Reset 😢</button>
     <script>
@@ -88,6 +90,13 @@
         }
       }
 
+      function auto(){
+        var v=document.getElementById('autoLvl');
+        v.innerText = parseInt(v.innerText)+1;
+        api.set("auto",parseInt(v.innerText);
+      }
+      
+      
       function km() {
         var ele = document.getElementById('Scr');
         var per = document.getElementById('Per');
@@ -137,7 +146,7 @@
       }
 
       function loadcookie() {
-        if (document.cookie !== "") {
+        if (api.get('Scr') !== undefined) {
           var ele = document.getElementById('Scr');
           var per = document.getElementById('Per');
           var upg = document.getElementById('Upg');
@@ -146,6 +155,7 @@
           per.innerHTML = api.get('per');
           upg.innerHTML = api.get('upg');
           level();
+          setInterval(()=>{ for(var k=0;k<parseInt(document.getElementById('autoLvl').innerText);k++){km(); }, 3000);
         }
       }
 
