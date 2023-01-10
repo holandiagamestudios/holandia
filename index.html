@@ -73,6 +73,9 @@
     Level:
     <b id="Lvl"> - </b>
     <br>
+    Auto:
+    <b id="autoLvl"> 0 </b>
+    <br>
     <button id="reset" onclick="resetscr();">😒 Reset 😢</button>
     <script>
       function upgrade() {
@@ -163,9 +166,11 @@
         var ele = document.getElementById('Scr');
         var per = document.getElementById('Per');
         var upg = document.getElementById('Upg');
+        var au = document.getElementById('autoLvl');
         ele.innerHTML = "0";
         per.innerHTML = "1";
         upg.innerHTML = "100";
+        au.innerHTML = "0";
         document.cookie = "";
         api.set('score', ele.innerHTML);
         api.set('per', per.innerHTML);
