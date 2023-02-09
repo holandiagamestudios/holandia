@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>fb</title>
+	</head>
+	<body onload="main();">
+		<b id="score">0</b>
+		<canvas id="game" width="500px" height="400px"></canvas>
+		<br>
+		<button id="up" onclick="py=py-25;">Up</button>
+		<script>
+			var game = document.getElementById('game');
+			var ctx = game.getContext('2d');
+			var py = 100;
+			var scr = 0;
+			function draw(){
+					ctx.fillStyle = "#aaaaff";
+					ctx.fillRect(0, 0, 500, 400);
+					ctx.fillStyle = "#ff0000";
+					ctx.fillRect(40, py+5, 30, 5);
+					ctx.fillStyle = "#ffffff";
+					ctx.fillRect(40, py, 30, 5);
+					ctx.fillStyle = "#0000ff";
+					ctx.fillRect(40, py-5, 30, 5);
+					
+			}
+			function main(){
+				setInterval(()=>{
+					scr += 1;
+					draw();
+					py=py+5;
+					if(py>400 || py < 0){
+						alert("You loose");
+						py = 100;
+						scr=0;
+					}
+				}, 60);
+			}
+		</script>
+	</body>
+</html>
